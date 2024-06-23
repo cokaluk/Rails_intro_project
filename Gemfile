@@ -2,6 +2,15 @@ source "https://rubygems.org"
 
 ruby "3.3.0"
 
+#https://github.com/rdavid1099/poke-api-v2
+#A simplified interface for interacting with the PokéAPI version 2 - https://pokeapi.co/api/v2/
+#Poke-Api-V2 depends on these other gems for usage at runtime:
+#[net/http] consumes the PokéAPI
+#[json] parses the PokéAPI response
+gem 'poke-api-v2', '0.1.1'
+gem 'json', '2.7.2'
+#gem 'net/http'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
