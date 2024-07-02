@@ -7,4 +7,46 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+##Commenting out as it has already been created while im testing seeding for pokemons/types
+#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+# query pokemon api for first 1000 pokemon
+
+# get type from pokemon and make type object? from type object make new pokemon
+# active storage of a picture? front-default from the api pokemon/id.sprites.front-default
+def fetch_pokemon_data(limit = 200)
+
+  pokemon_data = []
+
+  (1..limit).each do |id|
+    info = PokeApi.get(pokemon: id)
+    pokemon_data << {
+      name: info.name,
+      height: info.height,
+      weight: info.weight,
+      types: info.types.map { |type| type.type.name }
+    }
+  end
+
+  pokemon_data
+end
+
+def seed_pokemon
+  pokemon_data = fetch_pokemon_data
+
+  pokemon_data.each do |data|
+    pokemon = Pokemon.create(name: data[:name], height: data[:height], weight: data[:weight])
+    data[:types].each do |type_name|
+      type = Type.find_or_create_by(name: type_name)
+      pokemon.types << type
+    end
+
+  end
+
+end
+
+
+seed_pokemon
