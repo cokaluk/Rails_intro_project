@@ -9,7 +9,7 @@ ruby "3.3.0"
 #[json] parses the PokéAPI response
 gem 'poke-api-v2', '0.1.1'
 gem 'json', '2.7.2'
-#gem 'net/http'
+#gem 'net/http'  can't seem to get gem, works fine without it functionality is probably default in rails
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"

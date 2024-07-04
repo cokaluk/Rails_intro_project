@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  def index
-    @pokemon = Pokemon.all()
+  def about
   end
+
 end
