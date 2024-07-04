@@ -4,6 +4,9 @@
                <H2><%= pokemon.name %></H2>
                <p>height:<%=pokemon.height %></p>
                <p>weight:<%=pokemon.weight %></p>
+               <% pokemon.types.each do |type| %>
+                    <p><%= type.name %></p>
+               <%end%>
           </div>
      <%end%>
 </div>

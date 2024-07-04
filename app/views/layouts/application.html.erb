@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <nav class="bg-slate-400 flex justify-between px-20 sticky top-0 text-3xl">
+      <%= link_to "Home", root_path%>
+      <%= link_to "About", about_path%>
+    </nav>
     <main class="container mx-auto mt-2 px-5 flex">
       <%= yield %>
     </main>
