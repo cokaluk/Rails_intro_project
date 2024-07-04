@@ -12,11 +12,12 @@
 ##Commenting out as it has already been created while im testing seeding for pokemons/types
 #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
+Pokemon.destroy_all()
+Type.destroy_all()
+Move.destroy_all()
 
 # query pokemon api for first 1000 pokemon
-
-# get type from pokemon and make type object? from type object make new pokemon
-# active storage of a picture? front-default from the api pokemon/id.sprites.front-default
+# active storage of a picture? front-default from the api pokemon/id.sprites.front-default?
 def fetch_pokemon_data(limit = 200)
 
   pokemon_data = []
@@ -27,7 +28,7 @@ def fetch_pokemon_data(limit = 200)
       name: info.name,
       height: info.height,
       weight: info.weight,
-      types: info.types.map { |type| type.type.name }
+      types: info.types.map { |type| type.type.name },
       moves: info.moves.map { |move| move.move.name }
     }
   end
@@ -43,6 +44,10 @@ def seed_pokemon
     data[:types].each do |type_name|
       type = Type.find_or_create_by(name: type_name)
       pokemon.types << type
+    end
+    data[:moves].each do |move_name|
+      move = Move.find_or_create_by(name: move_name)
+      pokemon.moves << move
     end
 
   end
