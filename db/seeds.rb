@@ -28,6 +28,7 @@ def fetch_pokemon_data(limit = 200)
       height: info.height,
       weight: info.weight,
       types: info.types.map { |type| type.type.name }
+      moves: info.moves.map { |move| move.move.name }
     }
   end
 
