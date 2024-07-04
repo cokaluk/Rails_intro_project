@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pokemon#index"
 
-  get "about", to: "application#about"
+  get "/about", to: "application#about"
+
+  resources :pokemon, only: [:show]
 end

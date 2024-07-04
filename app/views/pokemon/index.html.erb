@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 gap-4 mx-auto">
      <% @pokemons.each do | pokemon | %>
           <div class="p-3 bg-gray-400">
-               <H2><%= pokemon.name %></H2>
+               <H2><%= link_to pokemon.name, pokemon_path(pokemon)%></H2>
                <p>height:<%=pokemon.height %></p>
                <p>weight:<%=pokemon.weight %></p>
                <% pokemon.types.each do |type| %>
