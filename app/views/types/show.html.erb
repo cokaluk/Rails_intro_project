@@ -3,6 +3,6 @@
 
      <h2 class="my-5 font-bold text-xl">Pokemon</h2>
      <% @type.pokemons.each do |pokemon| %>
-          <p><%= pokemon.name %></p>
+          <p><%= link_to pokemon.name, pokemon_path(pokemon) %></p>
      <% end %>
 </div>

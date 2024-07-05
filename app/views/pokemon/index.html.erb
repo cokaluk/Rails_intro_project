@@ -5,7 +5,7 @@
                <p>height:<%=pokemon.height %></p>
                <p>weight:<%=pokemon.weight %></p>
                <% pokemon.types.each do |type| %>
-                    <p><%= type.name %></p>
+                    <p><%= link_to type.name, type_path(type) %></p>
                <%end%>
           </div>
      <%end%>
