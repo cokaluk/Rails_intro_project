@@ -11,6 +11,10 @@
      </p>
      <p>weight: <%= @pokemon.weight / 10%> Kg</p>
 
+     <% if @pokemon.image.attached? %>
+          <%= image_tag @pokemon.image %>
+     <% end %>
+
      <h2 class="my-5 font-bold text-xl">Types</h2>
      <div class="grid grid-cols-6 gap-4 mx-auto">
           <% @pokemon.types.each do |type| %>
