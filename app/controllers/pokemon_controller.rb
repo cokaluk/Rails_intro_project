@@ -1,6 +1,6 @@
 class PokemonController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    @pokemons = Pokemon.page(params[:page]).per(30)
   end
 
   def show
