@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   get "/about", to: "application#about"
 
-  resources :pokemon, only: [:show]
+  resources :pokemon, only: [:index, :show]
+
+  resources :types, only: [:index, :show]
+
+  resources :moves, only: [:index, :show]
 end

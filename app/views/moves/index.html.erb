@@ -1,0 +1,7 @@
+<div class="grid grid-cols-6 gap-4 mx-auto">
+     <% @moves.each do | move | %>
+          <div class="p-3 bg-gray-400">
+               <H2><%= link_to move.name, move_path(move)%></H2>
+          </div>
+     <%end%>
+</div>
