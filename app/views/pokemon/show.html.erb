@@ -1,7 +1,14 @@
 <div class="flex flex-col items-center mx-auto">
      <h1 class="mb-5 font-bold text-2xl"><%= @pokemon.name%></h1>
 
-     <p>height: <%= @pokemon.height%></p>
+     <p>
+          height:
+          <% if @pokemon.height > 9%>
+               <%=@pokemon.height / 10%> M
+          <% else %>
+               <%=@pokemon.height * 10%> Cm
+          <% end %>
+     </p>
      <p>weight: <%= @pokemon.weight / 10%> Kg</p>
 
      <h2 class="my-5 font-bold text-xl">Types</h2>

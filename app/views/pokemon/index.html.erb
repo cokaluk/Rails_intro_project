@@ -2,8 +2,14 @@
      <% @pokemons.each do | pokemon | %>
           <div class="p-3 bg-gray-400">
                <H2><%= link_to pokemon.name, pokemon_path(pokemon)%></H2>
-               <p>height:<%=pokemon.height %></p>
-               <p>weight:<%=pokemon.weight %></p>
+               <p>height:
+                    <% if pokemon.height > 9%>
+                         <%=pokemon.height / 10%> M
+                    <% else %>
+                         <%=pokemon.height * 10%> Cm
+                    <% end %>
+               </p>
+               <p>weight: <%= pokemon.weight / 10%> Kg</p>
                <% pokemon.types.each do |type| %>
                     <p><%= link_to type.name, type_path(type) %></p>
                <%end%>
