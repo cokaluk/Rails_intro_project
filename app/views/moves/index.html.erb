@@ -1,13 +1,11 @@
 <div class="grid grid-cols-6 gap-4 mx-auto">
-     <div class="col-span-6 bg-purple-600">
-          <%= form_with url: moves_path, method: :get, local: true, class: "flex items-center justify-between" do%>
-                    <%= label_tag :search, "Search for Moves"%>
-                    <div>
-                         <%= text_field_tag :search, params[:search]%>
-                         <%= submit_tag "Search", class: "bg-blue-300" %>
-                    </div>
-          <%end%>
-     </div>
+     <%= form_with url: moves_path, method: :get, local: true, class: "col-span-6 bg-purple-600 flex items-center justify-between" do%>
+          <%= label_tag :search, "Search for Moves"%>
+          <div>
+                    <%= text_field_tag :search, params[:search]%>
+                    <%= submit_tag "Search", class: "bg-blue-300" %>
+               </div>
+     <%end%>
 
      <% @moves.each do | move | %>
           <div class="p-3 bg-gray-400">

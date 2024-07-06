@@ -1,13 +1,11 @@
 <div class="grid grid-cols-6 gap-4 mx-auto">
-     <div class="col-span-6 bg-purple-600">
-     <%= form_with url: pokemon_index_path, method: :get, local: true, class: "flex items-center justify-between" do%>
+     <%= form_with url: pokemon_index_path, method: :get, local: true, class: "bg-purple-600 col-span-6 flex items-center justify-between" do%>
                <%= label_tag :search, "Search for Pokemon"%>
                <div>
                     <%= text_field_tag :search, params[:search]%>
                     <%= submit_tag "Search", class: "bg-blue-300" %>
                </div>
      <%end%>
-     </div>
      <% @pokemons.each do | pokemon | %>
           <div class="p-3 bg-gray-400">
                <H2><%= link_to pokemon.name, pokemon_path(pokemon)%></H2>
