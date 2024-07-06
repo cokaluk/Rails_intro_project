@@ -18,7 +18,7 @@ Type.delete_all()
 Move.delete_all()
 
 # query pokemon api for first 1000 pokemon
-def fetch_pokemon_data(limit = 20)
+def fetch_pokemon_data(limit = 1000)
 
   pokemon_data = []
 

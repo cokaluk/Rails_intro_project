@@ -1,6 +1,10 @@
 class TypesController < ApplicationController
   def index
-    @types = Type.page(params[:page]).per(30)
+    if params[:search]
+      @types = Type.search(params[:search]).page(params[:page]).per(30)
+    else
+      @types = Type.page(params[:page]).per(30)
+    end
   end
 
   def show

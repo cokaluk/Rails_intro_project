@@ -1,6 +1,10 @@
 class PokemonController < ApplicationController
   def index
-    @pokemons = Pokemon.page(params[:page]).per(30)
+    if params[:search]
+      @pokemons = Pokemon.search(params[:search]).page(params[:page]).per(30)
+    else
+      @pokemons = Pokemon.page(params[:page]).per(30)
+    end
   end
 
   def show

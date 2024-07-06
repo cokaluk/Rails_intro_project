@@ -1,6 +1,10 @@
 class MovesController < ApplicationController
   def index
-    @moves = Move.page(params[:page]).per(30)
+    if params[:search]
+      @moves = Move.search(params[:search]).page(params[:page]).per(30)
+    else
+      @moves = Move.page(params[:page]).per(30)
+    end
   end
 
   def show
